@@ -1,9 +1,15 @@
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 
-
-export const Root = ({store}) => (
+export const Root = ({ store }) => (
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />}>
+        <Route path=':filter' element={<App />}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </Provider>
 );
